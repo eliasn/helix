@@ -95,7 +95,7 @@ where
         .collect::<HashMap<char, char>>();
     pairs
         .iter()
-        .filter_map(|(_, to)| pairs.contains_key(to).then(|| *to))
+        .filter_map(|(_, to)| pairs.contains_key(to).then_some(*to))
         .collect::<Vec<_>>()
         .into_iter()
         .for_each(|c| {
